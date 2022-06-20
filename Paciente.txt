@@ -1,0 +1,192 @@
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
+
+public class Paciente {
+
+	static Scanner scanner = new Scanner(System.in);
+	
+	private String nome;
+	private String sobrenome;
+	private char sexo;
+	private LocalDate nascimento;
+	private byte idade;
+	private short altura;
+	private double peso;
+	private String cpf;
+	private double imc;
+	
+	
+	public String obterSituacaoIMC() {
+		
+		if(imc < 17) {
+			return "Muito abaixo do peso";
+		} else if(imc >= 17 && imc <= 18.49) {
+			return "Abaixo do peso";
+		} else if(imc >= 18.50 && imc <= 24.99) {
+			return "Peso normal";
+		} else if(imc >= 25 && imc <= 29.99) {
+			return "Acima do peso";			
+		} else if(imc >= 30 && imc <= 34.99) {
+			return "Obesidade I";
+		} else if(imc >= 35 && imc <= 39.99) {
+			return "Obesidade II (severa)";
+		} else {
+			return "Obesidade III (mórbida)";
+		}
+		
+	}
+	
+	
+	public int calcularIdade() {
+		
+		LocalDate dataAtual = LocalDate.now();
+		return Period.between(nascimento, LocalDate.now()).getYears();
+		
+		
+	}
+	
+	
+	public double calcularIMC() {
+		
+		return imc = peso / (altura * altura);
+		
+	}
+	
+	
+	
+	public double obterPesoIdealHomem(double altura) {
+		
+		return (72.7 * altura) - 58;
+		
+		}
+	
+	
+    public double obterPesoIdealMulher(double altura) {
+		
+		return (62.1 * altura) - 44.7;
+		
+		}
+	
+	
+	
+	//construtor
+	public Paciente() {
+		super();
+	}
+
+	
+	//construtor
+	public Paciente(String nome, String sobrenome, char sexo, LocalDate nascimento, short altura, double peso,
+			String cpf) {
+		super();
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.sexo = sexo;
+		this.nascimento = nascimento;
+		this.altura = altura;
+		this.peso = peso;
+		this.cpf = cpf;
+	}
+
+	
+	//construtor
+	public Paciente(String nome, String sobrenome, char sexo, LocalDate nascimento, short altura, double peso) {
+		super();
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.sexo = sexo;
+		this.nascimento = nascimento;
+		this.altura = altura;
+		this.peso = peso;
+	}
+
+	//construtor
+	public Paciente(String nome, String sobrenome, String cpf) {
+		super();
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+	}
+
+
+	//getters and setters
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+
+
+	public char getSexo() {
+		return sexo;
+	}
+
+
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+
+
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
+
+
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
+	}
+
+
+	public short getAltura() {
+		return altura;
+	}
+
+
+	public void setAltura(short altura) {
+		this.altura = altura;
+	}
+
+
+	public double getPeso() {
+		return peso;
+	}
+
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+
+	public String getCpf() {
+		return cpf;
+	}
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
+	public byte getIdade() {
+		return idade;
+	}
+
+
+	public double getImc() {
+		return imc;
+	}
+}
